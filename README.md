@@ -1,6 +1,6 @@
 # intern_flutter_challenge
 
-A new Flutter project.
+A new Flutter project as challenge for Intern at Synapsis.id
 
 ## Getting Started
 
