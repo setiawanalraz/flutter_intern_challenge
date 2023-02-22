@@ -45,7 +45,10 @@ class MyDrawer extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(5)),
                   Text(
                     "Halaman A",
-                    style: TextStyle(color: Colors.indigo),
+                    style: TextStyle(
+                      color: Colors.indigo,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
@@ -71,7 +74,10 @@ class MyDrawer extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(5)),
                   Text(
                     "Halaman B",
-                    style: TextStyle(color: Colors.deepOrange),
+                    style: TextStyle(
+                      color: Colors.deepOrange,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
@@ -94,7 +100,10 @@ class MyDrawer extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(5)),
                   Text(
                     "Halaman C",
-                    style: TextStyle(color: Colors.green),
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
@@ -111,7 +120,10 @@ class MyDrawer extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(5)),
                   Text(
                     "Halaman Bonus",
-                    style: TextStyle(color: Colors.teal),
+                    style: TextStyle(
+                      color: Colors.teal,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
@@ -128,7 +140,10 @@ class MyDrawer extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(5)),
                   Text(
                     "Logout",
-                    style: TextStyle(color: Colors.amber),
+                    style: TextStyle(
+                      color: Colors.amber,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),

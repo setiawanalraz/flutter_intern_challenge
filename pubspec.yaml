@@ -44,6 +44,8 @@ dependencies:
   battery_info: ^1.1.1
   device_info_plus: ^8.0.0
   geolocator: ^8.0.0
+  sqflite: ^2.2.4+1
+  qr_flutter: ^4.0.0
 
 icons_launcher:
   image_path: "assets/images/app_icon.png"

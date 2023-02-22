@@ -19,7 +19,10 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          icon: const Icon(Icons.info),
+          icon: const Icon(
+            Icons.info,
+            color: Colors.white,
+          ),
           onPressed: () {
             showAboutDialog(
               context: context,

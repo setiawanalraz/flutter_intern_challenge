@@ -13,9 +13,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Intern Flutter Challenge",
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.white,
+          brightness: Brightness.light,
+          primary: Colors.blue,
+          secondary: Colors.teal,
+        ),
+        useMaterial3: true,
         textTheme: const TextTheme(
-          headline3: TextStyle(
+          displaySmall: TextStyle(
             fontFamily: 'Oswald',
             fontSize: 45.0,
             color: Colors.amber,
