@@ -228,7 +228,7 @@ class _MainPageState extends State<MainPage> {
                     color: Colors.amber,
                   ),
                   title: Text("GPS Coordinate", style: amber),
-                  subtitle: Text("$long, $lat", style: amber),
+                  subtitle: Text("$lat, $long", style: amber),
                   onTap: () {},
                 ),
 

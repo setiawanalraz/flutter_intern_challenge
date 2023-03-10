@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../pages/login_page.dart';
 import '../pages/main_page.dart';
 import '../pages/second_page.dart';
+import '../pages/gps_maps/map_location_page.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -96,7 +97,7 @@ class MyDrawer extends StatelessWidget {
             ListTile(
               title: Row(
                 children: const [
-                  Icon(Icons.area_chart, color: Colors.green),
+                  Icon(Icons.map, color: Colors.green),
                   Padding(padding: EdgeInsets.all(5)),
                   Text(
                     "Halaman C",
@@ -107,7 +108,9 @@ class MyDrawer extends StatelessWidget {
                   ),
                 ],
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MapLocationPage()));
+              },
             ),
             const Divider(height: 2.0),
             ListTile(
