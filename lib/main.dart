@@ -2,6 +2,18 @@ import 'package:flutter/material.dart';
 import 'pages/login_page.dart';
 
 void main() {
+  ErrorWidget.builder = (FlutterErrorDetails details) => Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text("Something went wrong, please wait"),
+              SizedBox(height: 5),
+              CircularProgressIndicator(),
+            ],
+          ),
+        ),
+      );
   runApp(const MyApp());
 }
 
