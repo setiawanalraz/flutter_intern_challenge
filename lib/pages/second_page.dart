@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-
-import '../style/style.dart';
-import '../widgets/my_appbar.dart';
-import '../widgets/my_drawer.dart';
-import 'qr_flutter/qr_view.dart';
+import 'package:intern_flutter_challenge/style/style.dart';
+import 'package:intern_flutter_challenge/widgets/my_appbar.dart';
+import 'package:intern_flutter_challenge/pages/qr_flutter/qr_view.dart';
 
 class SecondPage extends StatefulWidget {
   const SecondPage({Key? key}) : super(key: key);
@@ -32,7 +30,9 @@ class _SecondPageState extends State<SecondPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(),
+      appBar: const MyAppBar(
+        appBarTitle: "QR Code Generator",
+      ),
       body: FutureBuilder<AndroidDeviceInfo>(
         future: getInfo(),
         builder: (context, snapshot) {
@@ -182,7 +182,6 @@ class _SecondPageState extends State<SecondPage> {
           );
         },
       ),
-      drawer: const MyDrawer(),
     );
   }
 }

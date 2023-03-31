@@ -1,9 +1,8 @@
-import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
+import 'package:awesome_icons/awesome_icons.dart';
 import 'package:local_auth/local_auth.dart';
-
-import 'main_page.dart';
+import 'package:intern_flutter_challenge/widgets/my_will_pop_scope.dart';
 
 const users = {
   'dribbble@gmail.com': '12345',
@@ -64,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => const MainPage(),
+            builder: (context) => const MyWillPopScope(),
           ),
         );
       },

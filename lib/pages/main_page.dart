@@ -7,10 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:sensors_plus/sensors_plus.dart';
-
-import '../style/style.dart';
-import '../widgets/my_appbar.dart';
-import '../widgets/my_drawer.dart';
+import 'package:intern_flutter_challenge/style/style.dart';
+import 'package:intern_flutter_challenge/widgets/my_appbar.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -158,7 +156,7 @@ class _MainPageState extends State<MainPage> {
         _magnetometerValues?.map((double v) => v.toStringAsFixed(1)).toList();
 
     return Scaffold(
-      appBar: const MyAppBar(),
+      appBar: const MyAppBar(appBarTitle: "Droid Device Info"),
       body: FutureBuilder<AndroidDeviceInfo>(
         future: getInfo(),
         builder: (context, snapshot) {
@@ -256,7 +254,6 @@ class _MainPageState extends State<MainPage> {
           );
         },
       ),
-      drawer: const MyDrawer(),
     );
   }
 }

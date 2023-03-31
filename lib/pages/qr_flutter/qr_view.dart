@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:intern_flutter_challenge/widgets/my_appbar.dart';
 
 class QRView extends StatelessWidget {
   final String textQR;
@@ -11,31 +12,7 @@ class QRView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 56,
-        title: const Text("QR View", style: TextStyle(color: Colors.white)),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-          ),
-        ),
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 75, 176, 248),
-                Color.fromARGB(255, 101, 20, 231)
-              ],
-              begin: FractionalOffset.topLeft,
-              end: FractionalOffset.bottomRight,
-            ),
-          ),
-        ),
-      ),
+      appBar: const MyAppBar(appBarTitle: "QR View"),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

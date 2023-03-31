@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
-import '../../widgets/my_drawer.dart';
+import 'package:intern_flutter_challenge/widgets/my_appbar.dart';
 
 class MapLocationPage extends StatefulWidget {
   const MapLocationPage({super.key});
@@ -82,7 +81,7 @@ class _MapLocationPageState extends State<MapLocationPage> {
 
   Future<void> _goToMyLocation() async {
     final myPosition = LatLng(lat, long);
-    mapController.animateCamera(CameraUpdate.newLatLngZoom(myPosition, 15));
+    mapController.animateCamera(CameraUpdate.newLatLngZoom(myPosition, 18));
     setState(() {
       Marker(
         markerId: const MarkerId("My Location"),
@@ -100,10 +99,11 @@ class _MapLocationPageState extends State<MapLocationPage> {
     LatLng currentLocation = LatLng(lat, long);
 
     return Scaffold(
+      appBar: const MyAppBar(appBarTitle: "Maps"),
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
           target: currentLocation,
-          zoom: 15,
+          zoom: 14,
         ),
         mapType: _currentMapType,
         onMapCreated: (controller) {
@@ -120,7 +120,6 @@ class _MapLocationPageState extends State<MapLocationPage> {
         markers: _markers.values.toSet(),
         zoomControlsEnabled: false,
       ),
-      drawer: const MyDrawer(),
       floatingActionButton: Container(
         padding: const EdgeInsets.only(bottom: 50),
         alignment: Alignment.bottomRight,

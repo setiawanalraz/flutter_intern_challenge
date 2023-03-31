@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intern_flutter_challenge/pages/login_page.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MyAppBar({Key? key}) : super(key: key);
+  final String appBarTitle;
+  const MyAppBar({
+    Key? key,
+    required this.appBarTitle,
+  }) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(56);
@@ -9,20 +14,10 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: const Icon(
-        Icons.list,
-        color: Colors.white,
-      ),
-      title: const Text(
-        "Droid Device",
-        style: TextStyle(color: Colors.white),
-      ),
+      title: Text(appBarTitle),
       actions: [
         IconButton(
-          icon: const Icon(
-            Icons.info,
-            color: Colors.white,
-          ),
+          icon: const Icon(Icons.info),
           onPressed: () {
             showAboutDialog(
               context: context,
@@ -34,6 +29,13 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             );
           },
           tooltip: "About",
+        ),
+        IconButton(
+          icon: const Icon(Icons.logout),
+          onPressed: () {
+            showAlertDialog(context);
+          },
+          tooltip: "Logout",
         ),
       ],
       flexibleSpace: Container(
@@ -63,4 +65,56 @@ class MyAppIcon extends StatelessWidget {
       height: 64,
     );
   }
+}
+
+showAlertDialog(BuildContext context) {
+  //set up button
+  Widget cancelButton() {
+    return TextButton(
+      onPressed: () => Navigator.of(context, rootNavigator: true).pop("dialog"),
+      style:
+          ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
+      child: const Text(
+        "Cancel",
+        style: TextStyle(color: Colors.white),
+      ),
+    );
+  }
+
+  Widget confirmButton() {
+    return TextButton(
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop("dialog");
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const LoginPage(),
+          ),
+        );
+      },
+      style:
+          ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
+      child: const Text(
+        "Confirm",
+        style: TextStyle(color: Colors.white),
+      ),
+    );
+  }
+
+  //set up alert dialog
+  AlertDialog alertDialog = AlertDialog(
+    title: const Text("Logout"),
+    content: const Text("Are you sure you want to logout?"),
+    actions: [
+      confirmButton(),
+      cancelButton(),
+    ],
+  );
+
+  //show dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alertDialog;
+    },
+  );
 }
