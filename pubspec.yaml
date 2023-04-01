@@ -46,6 +46,7 @@ dependencies:
   geolocator: ^8.0.0
   qr_flutter: ^4.0.0
   google_maps_flutter: ^2.2.4
+  shared_preferences: ^2.0.12
 
 icons_launcher:
   image_path: "assets/images/app_icon.png"

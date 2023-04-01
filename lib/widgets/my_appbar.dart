@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intern_flutter_challenge/pages/login_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String appBarTitle;
@@ -83,13 +84,18 @@ showAlertDialog(BuildContext context) {
 
   Widget confirmButton() {
     return TextButton(
-      onPressed: () {
-        Navigator.of(context, rootNavigator: true).pop("dialog");
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (context) => const LoginPage(),
-          ),
-        );
+      onPressed: () async {
+        final pref = await SharedPreferences.getInstance();
+        pref.setBool("showMainPage", false);
+
+        if (context.mounted) {
+          Navigator.of(context, rootNavigator: true).pop("dialog");
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => const LoginPage(),
+            ),
+          );
+        }
       },
       style:
           ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),

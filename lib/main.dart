@@ -1,25 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intern_flutter_challenge/pages/login_page.dart';
+import 'package:intern_flutter_challenge/widgets/my_will_pop_scope.dart';
 
-void main() {
-  ErrorWidget.builder = (FlutterErrorDetails details) => Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              // add this custom error when show maps (reason: can't be null)
-              Text("Something went wrong, please wait"),
-              SizedBox(height: 10),
-              CircularProgressIndicator(),
-            ],
-          ),
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+  final showMainPage = prefs.getBool("showMainPage") ?? false;
+
+  ErrorWidget.builder = (FlutterErrorDetails details) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            // add this custom error when show maps (reason: can't be null)
+            Text("Something went wrong, please wait"),
+            SizedBox(height: 10),
+            CircularProgressIndicator(),
+          ],
         ),
-      );
-  runApp(const MyApp());
+      ),
+    );
+  };
+
+  runApp(MyApp(showMainPage: showMainPage));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final bool showMainPage;
+  const MyApp({
+    Key? key,
+    required this.showMainPage,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +68,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const LoginPage(),
+      home: showMainPage ? const MyWillPopScope() : const LoginPage(),
       debugShowCheckedModeBanner: false,
     );
   }

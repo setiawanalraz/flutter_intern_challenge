@@ -1,7 +1,8 @@
+import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
-import 'package:awesome_icons/awesome_icons.dart';
 import 'package:local_auth/local_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intern_flutter_challenge/widgets/my_will_pop_scope.dart';
 
 const users = {
@@ -80,6 +81,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
             );
             if (isAuthenticated == true) {
+              final prefs = await SharedPreferences.getInstance();
+              prefs.setBool("showMainPage", true);
+              
               await Future.delayed(loginTime);
             } else {
               if (!mounted) return;
