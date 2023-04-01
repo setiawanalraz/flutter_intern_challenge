@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intern_flutter_challenge/pages/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:intern_flutter_challenge/data/menu_items.dart';
+import 'package:intern_flutter_challenge/models/menu_item.dart';
+import 'package:intern_flutter_challenge/pages/login_page.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String appBarTitle;
@@ -17,26 +19,13 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(appBarTitle),
       actions: [
-        IconButton(
-          icon: const Icon(Icons.info),
-          onPressed: () {
-            showAboutDialog(
-              context: context,
-              applicationIcon: const MyAppIcon(),
-              applicationName: "Droid Device",
-              applicationVersion: "1.0.0",
-              applicationLegalese:
-                  "Mobile Developer (Flutter) Challenge for Intern at Synapsis.id. Developed by Alaraz Wari Setiawan, 2023",
-            );
-          },
-          tooltip: "About",
-        ),
-        IconButton(
-          icon: const Icon(Icons.logout),
-          onPressed: () {
-            showAlertDialog(context);
-          },
-          tooltip: "Logout",
+        PopupMenuButton<MenuItem>(
+          onSelected: (item) => onSelected(context, item),
+          itemBuilder: (context) => [
+            ...MenuItems.itemsFirst.map(buildItem).toList(),
+            const PopupMenuDivider(),
+            ...MenuItems.itemsSecond.map(buildItem).toList(),
+          ],
         ),
       ],
       flexibleSpace: Container(
@@ -52,6 +41,40 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
     );
+  }
+
+  PopupMenuItem<MenuItem> buildItem(MenuItem item) {
+    return PopupMenuItem<MenuItem>(
+      value: item,
+      child: Row(
+        children: [
+          Icon(item.icon, color: Colors.black, size: 20),
+          const SizedBox(width: 12),
+          Text(item.text),
+        ],
+      ),
+    );
+  }
+
+  void onSelected(BuildContext context, MenuItem item) {
+    switch (item) {
+      case MenuItems.itemAbout:
+        showAboutDialog(
+          context: context,
+          applicationIcon: const MyAppIcon(),
+          applicationName: "Droid Device",
+          applicationVersion: "1.0.0",
+          applicationLegalese:
+              "Mobile Developer (Flutter) Challenge for Intern at Synapsis.id. Developed by Alaraz Wari Setiawan, 2023",
+        );
+        break;
+
+      case MenuItems.itemLogout:
+        showAlertDialog(context);
+        break;
+
+      default:
+    }
   }
 }
 
