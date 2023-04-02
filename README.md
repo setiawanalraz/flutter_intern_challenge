@@ -32,12 +32,8 @@ Dependencies used for this app:
 - shared_preferences: ^2.0.12
 - camera: ^0.10.3+2
 
-![Screenshot_2023-02-05-23-55-39-51_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/216833506-2ea5d561-1034-4086-889f-5750790fb59e.jpg)
+![Screenshot_2023-04-02-17-08-38-96_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/229346972-368b0ae7-e503-4aac-bc21-c0ac9c7cc336.jpg)
+![Screenshot_2023-04-02-17-09-32-34_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/229346981-0217022e-851c-499d-8cb3-0e05e8404008.jpg)
+![Screenshot_2023-04-02-17-10-28-11_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/229347006-ad6c8356-b465-4e21-8029-3cb442384a15.jpg)
+![Screenshot_2023-04-02-17-10-52-52_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/229347014-4db4ce6b-9832-4aff-ad26-164fb556c725.jpg)
 
-![Screenshot_2023-02-05-23-55-48-15_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/216833510-5e41c63e-be28-4e54-98b6-4cb2b78ac877.jpg)
-
-![Screenshot_2023-02-05-23-56-15-58_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/216833513-31ef9c33-3e85-40c1-97a8-96e53513c0de.jpg)
-
-![Screenshot_2023-02-05-23-56-32-08_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/216833517-ad3ea465-8204-40c9-ae25-98cfa5d5d78e.jpg)
-
-![Screenshot_2023-02-05-23-56-38-41_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/216833520-1d57c548-e900-4ce1-9c0b-39a7663e777b.jpg)
