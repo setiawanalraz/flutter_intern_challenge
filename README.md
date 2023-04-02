@@ -29,6 +29,8 @@ Dependencies used for this app:
 - geolocator: ^8.0.0
 - qr_flutter: ^4.0.0
 - google_maps_flutter: ^2.2.4
+- shared_preferences: ^2.0.12
+- camera: ^0.10.3+2
 
 ![Screenshot_2023-02-05-23-55-39-51_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/216833506-2ea5d561-1034-4086-889f-5750790fb59e.jpg)
 
