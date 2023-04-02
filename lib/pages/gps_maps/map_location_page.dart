@@ -24,6 +24,8 @@ class _MapLocationPageState extends State<MapLocationPage> {
   @override
   void initState() {
     checkGPS();
+    addCustomMarkerIcon();
+    addCustomUserIcon();
     super.initState();
   }
 
@@ -36,7 +38,7 @@ class _MapLocationPageState extends State<MapLocationPage> {
         if (permission == LocationPermission.denied) {
           debugPrint('Location permissions are denied');
         } else if (permission == LocationPermission.deniedForever) {
-          debugPrint("'Location permissions are permanently denied");
+          debugPrint('Location permissions are permanently denied');
         } else {
           hasPermission = true;
         }
@@ -93,6 +95,33 @@ class _MapLocationPageState extends State<MapLocationPage> {
   late GoogleMapController mapController;
   final Map<String, Marker> _markers = {};
 
+  BitmapDescriptor customMarkerIcon = BitmapDescriptor.defaultMarker;
+  BitmapDescriptor userMarkerIcon = BitmapDescriptor.defaultMarker;
+
+  void addCustomMarkerIcon() {
+    BitmapDescriptor.fromAssetImage(
+            const ImageConfiguration(), "assets/images/custom_marker.png")
+        .then(
+      (icon) {
+        setState(() {
+          customMarkerIcon = icon;
+        });
+      },
+    );
+  }
+
+  void addCustomUserIcon() {
+    BitmapDescriptor.fromAssetImage(
+            const ImageConfiguration(), "assets/images/custom_user_marker.png")
+        .then(
+      (icon) {
+        setState(() {
+          userMarkerIcon = icon;
+        });
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     LatLng synapsisLocation = const LatLng(-6.2636134, 106.8756337);
@@ -109,10 +138,16 @@ class _MapLocationPageState extends State<MapLocationPage> {
         onMapCreated: (controller) {
           mapController = controller;
           addMarker(
-              "userLocation", currentLocation, "My Location", "$lat, $long");
+            "userLocation",
+            currentLocation,
+            userMarkerIcon,
+            "My Location",
+            "$lat, $long",
+          );
           addMarker(
             "synapsis.Id",
             synapsisLocation,
+            customMarkerIcon,
             "Synapsis Sinergi Digital",
             "A Start-Up Company that working on system prototyping especially Internet of Things, Electronics Devices, and Monitoring Systems.",
           );
@@ -151,10 +186,12 @@ class _MapLocationPageState extends State<MapLocationPage> {
     );
   }
 
-  addMarker(String id, LatLng location, String title, String? description) {
+  addMarker(String id, LatLng location, BitmapDescriptor customIcon,
+      String title, String? description) {
     var marker = Marker(
       markerId: MarkerId(id),
       position: location,
+      icon: customIcon,
       infoWindow: InfoWindow(
         title: title,
         snippet: description,
