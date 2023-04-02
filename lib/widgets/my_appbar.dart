@@ -48,9 +48,9 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       value: item,
       child: Row(
         children: [
-          Icon(item.icon, color: Colors.black, size: 20),
+          Icon(item.icon, color: Colors.blue, size: 20),
           const SizedBox(width: 12),
-          Text(item.text),
+          Text(item.text, style: const TextStyle(color: Colors.blue)),
         ],
       ),
     );
@@ -96,8 +96,10 @@ showAlertDialog(BuildContext context) {
   Widget cancelButton() {
     return TextButton(
       onPressed: () => Navigator.of(context, rootNavigator: true).pop("dialog"),
-      style:
-          ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(Colors.blue),
+        overlayColor: MaterialStateProperty.all(Colors.blue.shade200),
+      ),
       child: const Text(
         "Cancel",
         style: TextStyle(color: Colors.white),
@@ -120,8 +122,10 @@ showAlertDialog(BuildContext context) {
           );
         }
       },
-      style:
-          ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(Colors.red),
+        overlayColor: MaterialStateProperty.all(Colors.red.shade200),
+      ),
       child: const Text(
         "Confirm",
         style: TextStyle(color: Colors.white),

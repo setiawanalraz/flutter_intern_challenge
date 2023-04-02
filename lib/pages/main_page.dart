@@ -226,7 +226,9 @@ class _MainPageState extends State<MainPage> {
                     color: Colors.amber,
                   ),
                   title: Text("GPS Coordinate", style: amber),
-                  subtitle: Text("$lat, $long", style: amber),
+                  subtitle: (lat != '')
+                      ? Text("$lat, $long", style: amber)
+                      : const LinearProgressIndicator(),
                   onTap: () {},
                 ),
 

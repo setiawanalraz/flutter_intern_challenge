@@ -14,7 +14,7 @@ Future main() async {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
-            // add this custom error when show maps (reason: can't be null)
+            // add this custom error when show maps
             Text("Something went wrong, please wait"),
             SizedBox(height: 10),
             CircularProgressIndicator(),
