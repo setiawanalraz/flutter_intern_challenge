@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intern_flutter_challenge/pages/camera/camera_page.dart';
 import 'package:intern_flutter_challenge/pages/gps_maps/map_location_page.dart';
 import 'package:intern_flutter_challenge/pages/main_page.dart';
 import 'package:intern_flutter_challenge/pages/second_page.dart';
@@ -16,6 +17,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
     const MainPage(),
     const SecondPage(),
     const MapLocationPage(),
+    const CameraPage(),
   ];
 
   @override
@@ -73,6 +75,17 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
                 color: Colors.white,
               ),
               label: "Page C",
+            ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.camera_alt_outlined,
+                color: Colors.lightBlue.shade100,
+              ),
+              selectedIcon: const Icon(
+                Icons.camera_alt,
+                color: Colors.white,
+              ),
+              label: "Page D",
             ),
           ],
         ),
