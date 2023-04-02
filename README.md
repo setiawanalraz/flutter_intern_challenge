@@ -21,10 +21,12 @@ Dependencies used for this app:
 - shared_preferences: ^2.0.12
 - camera: ^0.10.3+2
 
+=
 ![Screenshot_2023-04-02-17-08-38-96_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/229346972-368b0ae7-e503-4aac-bc21-c0ac9c7cc336.jpg)
--
+=
 ![Screenshot_2023-04-02-17-09-32-34_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/229346981-0217022e-851c-499d-8cb3-0e05e8404008.jpg)
--
+=
 ![Screenshot_2023-04-02-17-10-28-11_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/229347006-ad6c8356-b465-4e21-8029-3cb442384a15.jpg)
--
+=
 ![Screenshot_2023-04-02-17-10-52-52_1d101ddb0a8f118c327d402381a02053](https://user-images.githubusercontent.com/58968817/229347014-4db4ce6b-9832-4aff-ad26-164fb556c725.jpg)
+=
